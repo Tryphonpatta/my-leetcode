@@ -22,8 +22,8 @@ public:
                 if(vis[x])continue;
                 vis[x] = true;
                 for(int j = 0 ; j < v[x].size() ; j++){
-                    
-                    q.push({v[x][j], y + 1});
+                    if(!vis[v[x][j]])
+                        q.push({v[x][j], y + 1});
                 }
             }
         }
