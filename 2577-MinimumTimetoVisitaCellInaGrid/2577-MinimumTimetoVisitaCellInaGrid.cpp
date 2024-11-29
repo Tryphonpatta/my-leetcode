@@ -28,7 +28,7 @@ public:
             int y = pq.top().second.second;
             pq.pop();
             if(x == n-1 && y == m-1)return z;
-            if(z < grid[x][y])continue;
+            // if(z < grid[x][y])continue;
             if(vis[x][y])continue;
             vis[x][y] = true;
             // bool s = check(grid,x,y);
