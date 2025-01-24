@@ -6,7 +6,7 @@ public:
         int pivot = (left + right) / 2;
         while(left <= right){
             pivot = (left + right) / 2;
-            cout << pivot << endl;
+            // cout << pivot << endl;
             if(nums[pivot] > nums.back()){
                 left = pivot + 1;
             }
