@@ -20,7 +20,7 @@ public:
         for(int i = 0; i < nums.size() ;i++){
             int x = numGroup[nums[i]];
             int y = g[x].front();
-            cout << y << " ";
+            // cout << y << " ";
             if(!g[x].empty())
                 g[x].pop_front();
             ans.push_back(y);
