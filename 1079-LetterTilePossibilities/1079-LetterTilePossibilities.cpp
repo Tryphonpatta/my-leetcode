@@ -32,7 +32,7 @@ public:
                 if(l[j] != 0)
                     k /= factorial(l[j]);
             }
-            cout << temp << " " << k << endl;
+            // cout << temp << " " << k << endl;
             ans += k;
         }
         return ans;
