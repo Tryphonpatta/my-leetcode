@@ -1,21 +1,19 @@
-// Last updated: 4/6/2025, 1:27:02 AM
+// Last updated: 4/6/2025, 1:27:27 AM
 class Solution {
+private:
+    int dfs(vector<int>& nums, int index, int currXOR) {
+        if (index == nums.size()) {
+            return currXOR;
+        }
+        // Include current element
+        int take = dfs(nums, index + 1, currXOR ^ nums[index]);
+        // Exclude current element
+        int notTake = dfs(nums, index + 1, currXOR);
+        return take + notTake;
+    }
+
 public:
     int subsetXORSum(vector<int>& nums) {
-        int ans = 0;
-        for(int i = 1 ; i < (1 << nums.size()) ; i++ ){
-            int x = i;
-            int j = 0;
-            int X = 0;
-            while (x) {
-                if (x & 1){
-                    X = X ^ nums[j];
-                }
-                j ++;
-                x = x >> 1;
-            }
-            ans += X;
-        }
-        return ans;
+        return dfs(nums, 0, 0);
     }
 };
