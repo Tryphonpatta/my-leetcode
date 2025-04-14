@@ -1,17 +1,17 @@
-// Last updated: 4/8/2025, 1:45:03 PM
+// Last updated: 4/14/2025, 1:49:29 PM
 class Solution {
 public:
-    int minimumOperations(vector<int>& nums) {
-        bool a[200] = {};
-        int ans = -1;
-        for (int i = nums.size() - 1; i >= 0; i--) {
-            if(a[nums[i]]){
-                ans = i;
-                break;
+    int countGoodTriplets(vector<int>& arr, int a, int b, int c) {
+        int ans =0;
+        for (int i = 0; i < arr.size(); i++) {
+            for (int j = i + 1; j < arr.size(); j++) {
+                for (int k = j + 1; k < arr.size(); k++) {
+                    if (abs(arr[i] - arr[j]) <= a &&
+                        abs(arr[j] - arr[k]) <= b && abs(arr[i] - arr[k]) <= c)
+                        ans ++;
+                }
             }
-            a[nums[i]] = true;
         }
-        if(ans == -1)return 0;
-        return (ans+3) / 3;
+        return ans;
     }
 };
