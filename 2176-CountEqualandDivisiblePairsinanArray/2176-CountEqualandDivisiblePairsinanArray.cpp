@@ -1,4 +1,4 @@
-// Last updated: 4/17/2025, 12:19:42 PM
+// Last updated: 4/17/2025, 12:19:50 PM
 class Solution {
 public:
     int countPairs(vector<int>& nums, int k) {
