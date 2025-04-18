@@ -1,7 +1,17 @@
-// Last updated: 4/18/2025, 9:41:25 AM
+// Last updated: 4/18/2025, 9:44:12 AM
 class Solution {
 public:
-    int findClosest(int x, int y, int z) {
-        return abs(x - z) == abs(y - z) ? 0 : abs(x - z) > abs(y - z) ? 2 : 1;
+    string smallestPalindrome(string s) {
+        int  n = s.size(), m = n/2;
+        if(n==1 || n==2) return s;
+
+        string f = s.substr(0, n/2);      
+        sort(f.begin(), f.end());
+
+        string rev = f;
+        reverse(rev.begin(), rev.end());  
+
+        if((n%2) ==1) f += s[m];          
+        return f + rev;                   
     }
 };
