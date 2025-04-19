@@ -1,22 +1,23 @@
+// Last updated: 4/19/2025, 4:35:17 PM
 class Solution {
 public:
     long long countFairPairs(vector<int>& nums, int lower, int upper) {
-        
-        std::sort(nums.begin(), nums.end());
-        long long returnVal = 0;
-
-        for(int i = 0; i < nums.size(); i++)
-        {
-            int targetLowerBoundVal = lower - nums[i];
-            int lowerIdx = std::lower_bound(nums.begin() + i + 1, nums.end(), targetLowerBoundVal) - nums.begin();
-
-            int targetUpperBoundVal = upper - nums[i];
-            int upperIdx = std::upper_bound(nums.begin() + i + 1, nums.end(), targetUpperBoundVal) - nums.begin();
-            --upperIdx;
-            
-            returnVal += upperIdx - lowerIdx + 1;
+        sort(nums.begin(),nums.end());
+        return lower_bound(nums,upper + 1) - lower_bound(nums,lower);
+    }
+    long long lower_bound(vector<int>& nums,int value){
+        int l = 0,r = nums.size() - 1;
+        long long result = 0;
+        while (l < r) {
+            int sum = nums[l] + nums[r];
+            if(sum < value) {
+                result += r - l;
+                l ++;
+            }
+            else {
+                r --;
+            }
         }
-
-        return returnVal;
+        return result;
     }
 };
