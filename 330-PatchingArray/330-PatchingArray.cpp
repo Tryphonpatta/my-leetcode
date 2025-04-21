@@ -1,22 +1,14 @@
-// Last updated: 4/21/2025, 2:07:36 PM
+// Last updated: 4/21/2025, 2:07:52 PM
 class Solution {
 public:
     int minPatches(vector<int>& nums, int n) {
-        long long miss = 1;
-        int result = 0;
-        int i = 0;
-        while(miss <= n) {
-            
-            if (i < nums.size() && nums[i] <= miss) {
-                miss += nums[i];
-                i ++;
-            }
-            else {
-                miss += miss;
-                result ++;
-            }
-            cout << miss << endl;
+        
+        int p=0,ans=0;
+        for(long int l=1;l<=n;1){
+            if(p<nums.size()&&nums[p]<=l){l+=nums[p];p++;}
+            else{ans++;l+=l;}
         }
-        return result;
+
+        return ans;
     }
 };
