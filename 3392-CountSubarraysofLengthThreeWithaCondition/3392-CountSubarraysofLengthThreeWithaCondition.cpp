@@ -1,3 +1,4 @@
+// Last updated: 4/27/2025, 6:03:36 PM
 class Solution {
 public:
     int countSubarrays(vector<int>& nums) {
