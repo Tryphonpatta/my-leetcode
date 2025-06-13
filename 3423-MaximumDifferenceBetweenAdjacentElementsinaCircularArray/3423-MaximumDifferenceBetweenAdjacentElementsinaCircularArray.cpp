@@ -1,4 +1,4 @@
-// Last updated: 6/13/2025, 1:26:20 PM
+// Last updated: 6/13/2025, 1:26:52 PM
 class Solution {
 public:
     int maxAdjacentDistance(vector<int>& nums) {
